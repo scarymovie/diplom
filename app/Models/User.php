@@ -35,6 +35,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        'id',
         'password',
         'remember_token',
         'two_factor_recovery_codes',
@@ -58,4 +59,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function box(){
+        return $this->hasMany(Box::class);
+    }
 }

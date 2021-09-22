@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBoxTable extends Migration
+class CreateBoxesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateBoxTable extends Migration
      */
     public function up()
     {
-        Schema::create('box', function (Blueprint $table) {
+        Schema::create('boxes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateBoxTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('box');
+        Schema::dropIfExists('boxes');
     }
 }
