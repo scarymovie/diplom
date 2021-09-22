@@ -25,6 +25,6 @@ class RegistrationController extends Controller
             'registered successfully',
             'name' => $user->name,
             'email' => $user->email
-        ]);
+        ], 201);
     }
 }

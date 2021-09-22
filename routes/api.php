@@ -21,5 +21,6 @@ use Illuminate\Support\Facades\Route;
 ]);*/
 Route::post('/registration', [RegistrationController::class, 'registration'])->name('registration');
 Route::post('/login',[LoginController::class, 'login'])->name('login');
+Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
 Route::middleware('auth:sanctum')->apiResource('boxes', BoxController::class);
 
