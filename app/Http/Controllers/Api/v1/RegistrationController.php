@@ -5,14 +5,11 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\RegistrationRequest;
 use App\Models\User;
-use http\Env\Response;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class RegistrationController extends Controller
 {
-    public function registration(RegistrationRequest $request) : JsonResponse
+    public function registration(RegistrationRequest $request): JsonResponse
     {
         $validated = $request->validated();
 
@@ -24,6 +21,10 @@ class RegistrationController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
         }
-        return response()->json($user);
+        return response()->json([
+            'registered successfully',
+            'name' => $user->name,
+            'email' => $user->email
+        ]);
     }
 }
