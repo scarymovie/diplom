@@ -3,73 +3,55 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Box\BoxStoreRequest;
+use App\Http\Resources\Api\Box\BoxShowResource;
 use App\Models\Box;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use function React\Promise\all;
 
 class BoxController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(): JsonResponse
     {
-        $box = Box::select('title')
-            ->where('user_id',\Auth::id())
+        $box = Box::select('id', 'title')
+            ->where('user_id', \Auth::id())
             ->get();
-        return $box;
+        return response()->json($box);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(BoxStoreRequest $request): JsonResponse
     {
-        //
-    }
+        $validated = $request->validated();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $userId = \Auth::id();
+
+        $box = Box::create([
+            'title' => $validated['title'],
+            'user_id' => \Auth::id(),
+        ]);
+
+        return response()->json([
+            'id' => $box->id,
+            'title' => $box->title
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Box $box): JsonResponse
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return response()->json(new BoxShowResource($box));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -80,7 +62,7 @@ class BoxController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

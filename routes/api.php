@@ -16,11 +16,20 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-/*Route::apiResources([
-    'boxes' => BoxController::class,
-]);*/
-Route::post('/registration', [RegistrationController::class, 'registration'])->name('registration');
-Route::post('/login',[LoginController::class, 'login'])->name('login');
-Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
-Route::middleware('auth:sanctum')->apiResource('boxes', BoxController::class);
 
+Route::group(
+    [], function () {
+    Route::post('/registration', [RegistrationController::class, 'registration'])
+        ->name('registration');
+    Route::post('/login', [LoginController::class, 'login'])
+        ->name('login');
+
+    Route::group([
+        'middleware' => 'auth:sanctum'
+    ], function () {
+        Route::apiResource('boxes', BoxController::class);
+        Route::post('/logout', [LoginController::class, 'logout'])
+            ->name('logout');
+    });
+}
+);

@@ -21,9 +21,11 @@ class LoginController extends Controller
             ], 401);
         }
 
-        $user = User::where('email', $credentials['email'])->firstOrFail();
+        $user = User::where('email', $credentials['email'])
+            ->firstOrFail();
 
-        $token = $user->createToken('auth_token')->plainTextToken;
+        $token = $user->createToken('auth_token')
+            ->plainTextToken;
 
         return response()->json([
             'name' => $user->name,

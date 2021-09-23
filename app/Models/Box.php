@@ -9,6 +9,11 @@ class Box extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'user_id'
+    ];
+
     public function prepareUser(){
         return $this->belongsTo(User::class);
     }
