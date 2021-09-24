@@ -15,7 +15,18 @@ class SecondZoneResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'slug' => $this->slug
+            'tier' => $this->tier,
+            'coefComposition' => $this->coefComposition,
+            'speciesComposition' => $this->speciesComposition,
+            'origin' => $this->origin,
+            'age'  => $this->age,
+            'height' => $this->height,
+            'diameter' => $this->diameter,
+            'class' => $this->class,
+            'density' => $this->density,
+            'g' => $this->g,
+            'stock' => $this->stock,
         ];
     }
 }
+

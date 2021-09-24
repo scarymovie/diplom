@@ -11,7 +11,7 @@ class Second extends Model
 
     protected $fillable =[
         'cards_id',
-        'slug',
+        'tier'
     ];
 
     public function secondcard()

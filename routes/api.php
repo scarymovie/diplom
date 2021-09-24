@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\v1\LoginController;
 use App\Http\Controllers\Api\v1\RegistrationController;
 use App\Http\Controllers\Api\v1\BoxController;
 use App\Http\Controllers\Api\v1\ZoneAController;
+use App\Http\Controllers\ExportExcelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::group(
         ->name('registration');
     Route::post('/login', [LoginController::class, 'login'])
         ->name('login');
+    Route::get('/users/export/', [ExportExcelController::class, 'export']);
 
     Route::group([
         'middleware' => 'auth:sanctum'

@@ -19,7 +19,17 @@ class CreateSecondsTable extends Migration
             $table->foreign('card_id')
                 ->references('id')
                 ->on('cards');
-            $table->string('slug');
+            $table->string('tier');
+            $table->string('coefComposition');
+            $table->string('speciesComposition');
+            $table->integer('age');
+            $table->integer('height');
+            $table->integer('diameter');
+            $table->integer('class');
+            $table->string('origin');
+            $table->integer('density');
+            $table->integer('g');
+            $table->integer('stock');
             $table->timestamps();
         });
     }

@@ -10,8 +10,7 @@ class Card extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
-        'box_id'
+
     ];
 
     public function prepareBox()
