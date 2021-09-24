@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class First extends Model
+class Second extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-        'cards_id'
+        'cards_id',
+        'slug',
     ];
 
-    public function firstcard()
+    public function secondcard()
     {
         return $this->belongsTo(Card::class);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Api\Card;
 
 use App\Http\Resources\Api\First\FirstZoneResource;
+use App\Http\Resources\Api\Second\SecondZoneResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CardIndexResource extends JsonResource
@@ -17,7 +18,8 @@ class CardIndexResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'first' => new FirstZoneResource($this->first)
+            'first' => new FirstZoneResource($this->first),
+            'second' => SecondZoneResource::collection($this->second)
         ];
     }
 }
