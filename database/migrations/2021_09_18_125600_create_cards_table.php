@@ -18,7 +18,7 @@ class CreateCardsTable extends Migration
             $table->unsignedBigInteger('box_id');
             $table->foreign('box_id')
                 ->references('id')
-                ->on('boxes');
+                ->on('box');
             $table->timestamps();
         });
     }

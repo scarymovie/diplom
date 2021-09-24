@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateZoneCTable extends Migration
+class CreateFirstsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,18 @@ class CreateZoneCTable extends Migration
      */
     public function up()
     {
-        Schema::create('zone_c', function (Blueprint $table) {
+        Schema::create('firsts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cards_id');
-            $table->foreign('cards_id')
+            $table->unsignedBigInteger('card_id');
+            $table->foreign('card_id')
                 ->references('id')
                 ->on('cards');
+            $table->string('Republic');
+            $table->string('district');
+            $table->string('region');
+            $table->string('quarter');
+            $table->string('distance');
+            $table->string('renter');
             $table->timestamps();
         });
     }
@@ -30,6 +36,6 @@ class CreateZoneCTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zone__c');
+        Schema::dropIfExists('firsts');
     }
 }

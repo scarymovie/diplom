@@ -18,4 +18,9 @@ class Card extends Model
     {
         return $this->belongsTo(Box::class);
     }
+
+    public function first()
+    {
+        return $this->hasOne(First::class);
+    }
 }

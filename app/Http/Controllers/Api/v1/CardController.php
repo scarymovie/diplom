@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Card\CardIndexRequest;
 use App\Http\Requests\Api\Card\CardStoreRequest;
 use App\Http\Resources\Api\Card\CardStoreResource;
 use App\Models\Box;
