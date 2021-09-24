@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\CardController;
 use App\Http\Controllers\Api\v1\LoginController;
 use App\Http\Controllers\Api\v1\RegistrationController;
 use App\Http\Controllers\Api\v1\BoxController;
@@ -28,6 +29,7 @@ Route::group(
         'middleware' => 'auth:sanctum'
     ], function () {
         Route::apiResource('boxes', BoxController::class);
+        Route::apiResource('cards', CardController::class);
         Route::post('/logout', [LoginController::class, 'logout'])
             ->name('logout');
     });

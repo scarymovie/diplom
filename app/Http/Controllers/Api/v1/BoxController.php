@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Box\BoxStoreRequest;
 use App\Http\Requests\Api\Box\BoxUpdateRequest;
+use App\Http\Resources\Api\Box\BoxResource;
 use App\Http\Resources\Api\Box\BoxShowResource;
 use App\Models\Box;
 use Illuminate\Http\JsonResponse;
@@ -16,12 +17,13 @@ class BoxController extends Controller
     {
         try {
             $box = Box::select('id', 'title')
+                ->with('prepareCard')
                 ->where('user_id', \Auth::id())
                 ->get();
-            return response()->json($box);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
         }
+        return response()->json(BoxResource::collection($box));
     }
 
     public function store(BoxStoreRequest $request): JsonResponse

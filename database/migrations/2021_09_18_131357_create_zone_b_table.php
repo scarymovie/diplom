@@ -15,10 +15,10 @@ class CreateZoneBTable extends Migration
     {
         Schema::create('zone_b', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('card_id');
-            $table->foreign('card_id')
+            $table->unsignedBigInteger('cards_id');
+            $table->foreign('cards_id')
                 ->references('id')
-                ->on('card');
+                ->on('cards');
             $table->timestamps();
         });
     }

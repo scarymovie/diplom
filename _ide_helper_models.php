@@ -20,6 +20,8 @@ namespace App\Models{
  * @property string|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Card[] $prepareCard
+ * @property-read int|null $prepare_card_count
  * @property-read \App\Models\User $prepareUser
  * @method static \Illuminate\Database\Eloquent\Builder|Box newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Box newQuery()
@@ -32,6 +34,26 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Box whereUserId($value)
  */
 	class Box extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Card
+ *
+ * @property int $id
+ * @property int $box_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Box $prepareBox
+ * @method static \Illuminate\Database\Eloquent\Builder|Card newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Card newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Card query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Card whereBoxId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Card whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Card whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Card whereUpdatedAt($value)
+ */
+	class Card extends \Eloquent {}
 }
 
 namespace App\Models{

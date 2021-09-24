@@ -14,7 +14,13 @@ class Box extends Model
         'user_id'
     ];
 
-    public function prepareUser(){
+    public function prepareUser()
+    {
         return $this->belongsTo(User::class);
+    }
+
+    public function prepareCard()
+    {
+        return $this->hasMany(Card::class);
     }
 }
