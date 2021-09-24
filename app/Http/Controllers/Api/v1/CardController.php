@@ -8,12 +8,13 @@ use App\Http\Resources\Api\Card\CardStoreResource;
 use App\Models\Box;
 use App\Models\Card;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
 {
 
-    public function store(CardStoreRequest $request, Card $card, Box $box): JsonResponse
+    public function store(CardStoreRequest $request): JsonResponse
     {
         $validated = $request->validated();
 
@@ -26,37 +27,30 @@ class CardController extends Controller
         return response()->json(new CardStoreResource($card));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Card $card): JsonResponse
     {
-        //
+        return response()->json($card->toArray());
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, Card $card): JsonResponse
     {
-        //
+        try {
+            $card = $card->update($request->all());
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+
+        return response()->json($card, Response::HTTP_ACCEPTED);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Card $card): JsonResponse
     {
-        //
+        try {
+            $card->delete();
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()]);
+        }
+
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 }
