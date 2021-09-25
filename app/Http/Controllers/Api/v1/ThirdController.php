@@ -3,47 +3,47 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\First\FirstRequest;
-use App\Http\Requests\Api\First\FirstUpdateRequest;
-use App\Http\Resources\Api\First\FirstZoneResource;
-use App\Models\First;
+use App\Http\Requests\Api\Third\ThirdRequest;
+use App\Http\Requests\Api\Third\ThirdUpdateRequest;
+use App\Http\Resources\Api\Third\ThirdZoneResource;
+use App\Models\Third;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class FirstController extends Controller
+class ThirdController extends Controller
 {
 
-    public function store(FirstRequest $request): JsonResponse
+    public function store(ThirdRequest $request): JsonResponse
     {
         $validated = $request->validated();
 
         try {
-            $first = First::create($validated);
+            $third = Third::create($validated);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
         }
 
-        return response()->json(new FirstZoneResource($first));
+        return response()->json(new ThirdZoneResource($third));
     }
 
-    public function update(FirstUpdateRequest $request, First $first): JsonResponse
+    public function update(ThirdUpdateRequest $request, Third $third): JsonResponse
     {
         $validated = $request->validated();
 
         try {
-            $first = $first->update($validated);
+            $third = $third->update($validated);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
         }
 
-        return response()->json($first, Response::HTTP_ACCEPTED);
+        return response()->json($third, Response::HTTP_ACCEPTED);
     }
 
-    public function destroy(First $first): JsonResponse
+    public function destroy(Third $third): JsonResponse
     {
         try {
-            $first->delete();
+            $third->delete();
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
         }

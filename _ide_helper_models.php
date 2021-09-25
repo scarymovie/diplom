@@ -36,6 +36,7 @@ namespace App\Models{
  * @property-read \App\Models\Box $prepareBox
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Second[] $second
  * @property-read int|null $second_count
+ * @property-read \App\Models\Third|null $third
  * @method static \Illuminate\Database\Eloquent\Builder|Card newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Card newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Card query()
@@ -57,40 +58,40 @@ namespace App\Models{
  * @property string $district
  * @property string $region
  * @property string $quarter
- * @property string $distance
- * @property string $renter
- * @property string $number
+ * @property string|null $distance
+ * @property string|null $renter
+ * @property string|null $number
  * @property string $area
  * @property string $earthCategory
  * @property string $protectionCategory
- * @property string $cutWay
- * @property string $ozu
- * @property string $height
- * @property string $exposition
- * @property string $slope
- * @property string $erozionForm
- * @property string $erozionDegree
- * @property string $firstEvent
- * @property string $percent
- * @property string $firstPtk
- * @property string $secondEvent
- * @property string $secondPtk
- * @property string $thirdEvent
- * @property string $thirdPtk
- * @property string $target
+ * @property string|null $cutWay
+ * @property string|null $ozu
+ * @property string|null $height
+ * @property string|null $exposition
+ * @property string|null $slope
+ * @property string|null $erozionForm
+ * @property string|null $erozionDegree
+ * @property string|null $firstEvent
+ * @property string|null $percent
+ * @property string|null $firstPtk
+ * @property string|null $secondEvent
+ * @property string|null $secondPtk
+ * @property string|null $thirdEvent
+ * @property string|null $thirdPtk
+ * @property string|null $target
  * @property string $dominantBreed
  * @property string $bonitetClass
  * @property string $forestType
  * @property string $tlu
- * @property string $fireDangeros
- * @property string $cutYear
- * @property string $allStump
- * @property string $pineStump
- * @property string $stumpDiameter
- * @property string $cutType
- * @property string $littering
- * @property string $liquid
- * @property string $deadwood
+ * @property string|null $fireDangeros
+ * @property string|null $cutYear
+ * @property string|null $allStump
+ * @property string|null $pineStump
+ * @property string|null $stumpDiameter
+ * @property string|null $cutType
+ * @property string|null $littering
+ * @property string|null $liquid
+ * @property string|null $deadwood
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Card $firstcard
@@ -152,14 +153,14 @@ namespace App\Models{
  * @property string $tier
  * @property string $coefComposition
  * @property string $speciesComposition
- * @property int $age
+ * @property string $origin
+ * @property int|null $age
  * @property int $height
  * @property int $diameter
  * @property int $class
- * @property string $origin
- * @property int $density
- * @property int $g
- * @property int $stock
+ * @property int|null $density
+ * @property int|null $g
+ * @property int|null $stock
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Card $secondcard
@@ -183,6 +184,56 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Second whereUpdatedAt($value)
  */
 	class Second extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Third
+ *
+ * @property int $id
+ * @property int $card_id
+ * @property int|null $thousands
+ * @property int|null $height
+ * @property int|null $age
+ * @property int|null $koefOne
+ * @property string|null $podrostOne
+ * @property int|null $koefTwo
+ * @property string|null $podrostTwo
+ * @property int|null $koefThree
+ * @property string|null $podrostThree
+ * @property string|null $por
+ * @property string|null $Oc
+ * @property string|null $density
+ * @property string|null $podlesokOne
+ * @property string|null $podlesokTwo
+ * @property string|null $podlesokThree
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Card $thirdcard
+ * @method static \Illuminate\Database\Eloquent\Builder|Third newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Third newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Third query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereAge($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereCardId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereDensity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereHeight($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereKoefOne($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereKoefThree($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereKoefTwo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereOc($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third wherePodlesokOne($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third wherePodlesokThree($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third wherePodlesokTwo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third wherePodrostOne($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third wherePodrostThree($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third wherePodrostTwo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third wherePor($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereThousands($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Third whereUpdatedAt($value)
+ */
+	class Third extends \Eloquent {}
 }
 
 namespace App\Models{

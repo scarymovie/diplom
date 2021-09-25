@@ -22,14 +22,14 @@ class CreateSecondsTable extends Migration
             $table->string('tier');
             $table->string('coefComposition');
             $table->string('speciesComposition');
-            $table->integer('age');
+            $table->string('origin');
+            $table->integer('age')->nullable();
             $table->integer('height');
             $table->integer('diameter');
-            $table->integer('class');
-            $table->string('origin');
-            $table->integer('density');
-            $table->integer('g');
-            $table->integer('stock');
+            $table->integer('class')->default(1);
+            $table->integer('density')->nullable();
+            $table->integer('g')->nullable();
+            $table->integer('stock')->nullable();
             $table->timestamps();
         });
     }

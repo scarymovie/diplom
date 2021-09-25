@@ -27,4 +27,8 @@ class Card extends Model
     {
         return $this->hasMany(Second::class);
     }
+    public function third()
+    {
+        return $this->hasOne(Third::class);
+    }
 }

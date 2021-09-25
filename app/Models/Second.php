@@ -10,8 +10,18 @@ class Second extends Model
     use HasFactory;
 
     protected $fillable =[
-        'cards_id',
-        'tier'
+        'card_id',
+        'tier',
+        'coefComposition',
+        'speciesComposition',
+        'origin',
+        'age',
+        'height',
+        'diameter',
+        'class',
+        'density',
+        'g',
+        'stock',
     ];
 
     public function secondcard()

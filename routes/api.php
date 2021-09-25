@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\v1\FirstController;
 use App\Http\Controllers\Api\v1\LoginController;
 use App\Http\Controllers\Api\v1\RegistrationController;
 use App\Http\Controllers\Api\v1\BoxController;
+use App\Http\Controllers\Api\v1\SecondController;
+use App\Http\Controllers\Api\v1\ThirdController;
 use App\Http\Controllers\ExportExcelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +37,8 @@ Route::group(
         Route::apiResource('boxes', BoxController::class);
         Route::apiResource('cards', CardController::class);
         Route::apiResource('first', FirstController::class);
+        Route::apiResource('second', SecondController::class);
+        Route::apiResource('third', ThirdController::class);
         Route::post('/card', [CardIndexController::class, 'index'])
             ->name('card');
         Route::post('/logout', [LoginController::class, 'logout'])
