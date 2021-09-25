@@ -10,7 +10,28 @@ class First extends Model
     use HasFactory;
 
     protected $fillable =[
-        'cards_id'
+        'card_id',
+        'Republic',
+        'district',
+        'region',
+        'quarter',
+        'area',
+        'earthCategory',
+        'protectionCategory',
+        'dominantBreed',
+        'bonitetClass',
+        'forestType',
+        'tlu',
+        'renter',
+        'fireDangeros',
+        'cutYear',
+        'allStump',
+        'pineStump',
+        'stumpDiameter',
+        'cutType',
+        'littering',
+        'liquid',
+        'deadwood',
     ];
 
     public function firstcard()

@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\Api\v1\CardController;
 use App\Http\Controllers\Api\v1\CardIndexController;
+use App\Http\Controllers\Api\v1\FirstController;
 use App\Http\Controllers\Api\v1\LoginController;
 use App\Http\Controllers\Api\v1\RegistrationController;
 use App\Http\Controllers\Api\v1\BoxController;
-use App\Http\Controllers\Api\v1\ZoneAController;
 use App\Http\Controllers\ExportExcelController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +34,7 @@ Route::group(
     ], function () {
         Route::apiResource('boxes', BoxController::class);
         Route::apiResource('cards', CardController::class);
+        Route::apiResource('first', FirstController::class);
         Route::post('/card', [CardIndexController::class, 'index'])
             ->name('card');
         Route::post('/logout', [LoginController::class, 'logout'])
