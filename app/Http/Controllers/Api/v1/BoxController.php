@@ -23,7 +23,7 @@ class BoxController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
         }
-        return response()->json(BoxResource::collection($box));
+        return response()->success(BoxResource::collection($box));
     }
 
     public function store(BoxStoreRequest $request): JsonResponse
