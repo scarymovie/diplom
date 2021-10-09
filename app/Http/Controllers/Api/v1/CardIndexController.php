@@ -17,6 +17,6 @@ class CardIndexController extends Controller
         $card = Card::where('box_id', $validated['boxId'])
             ->with(['first', 'second', 'third'])
             ->get();
-        return response()->json(CardIndexResource::collection($card));
+        return response()->success(CardIndexResource::collection($card));
     }
 }

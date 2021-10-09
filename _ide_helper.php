@@ -11530,6 +11530,17 @@
         {
                         return \Illuminate\Routing\ResponseFactory::hasMacro($name);
         }
+                    /**
+         * 
+         *
+         * @see \App\Providers\AppServiceProvider::boot()
+         * @param mixed $data
+         * @static 
+         */ 
+        public static function success($data)
+        {
+                        return \Illuminate\Routing\ResponseFactory::success($data);
+        }
          
     }
             /**
@@ -17251,6 +17262,28 @@
         public static function slot($slot)
         {
                         return \Illuminate\View\View::slot($slot);
+        }
+         
+    }
+     
+}
+
+    namespace Illuminate\Routing { 
+            /**
+     * 
+     *
+     */ 
+        class ResponseFactory {
+                    /**
+         * 
+         *
+         * @see \App\Providers\AppServiceProvider::boot()
+         * @param mixed $data
+         * @static 
+         */ 
+        public static function success($data)
+        {
+                        return \Illuminate\Routing\ResponseFactory::success($data);
         }
          
     }

@@ -19,5 +19,10 @@
         "postcss": "^8.1.14",
         "postcss-import": "^14.0.1",
         "tailwindcss": "^2.2.2"
+    },
+    "dependencies": {
+        "vue": "^3.2.20",
+        "vue-loader": "^16.8.1",
+        "vue-router": "^4.0.11"
     }
 }

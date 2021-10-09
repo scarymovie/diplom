@@ -14,12 +14,24 @@ namespace App\Models{
 /**
  * App\Models\Box
  *
+ * @property int $id
+ * @property string $title
+ * @property int $user_id
+ * @property string|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Card[] $prepareCard
  * @property-read int|null $prepare_card_count
  * @property-read \App\Models\User $prepareUser
  * @method static \Illuminate\Database\Eloquent\Builder|Box newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Box newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Box query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Box whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Box whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Box whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Box whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Box whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Box whereUserId($value)
  */
 	class Box extends \Eloquent {}
 }
