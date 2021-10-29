@@ -18,7 +18,7 @@ class BoxController extends Controller
         try {
             $box = Box::select('id', 'title')
                 ->with('prepareCard')
-                ->where('user_id', \Auth::id())
+/*                ->where('user_id', \Auth::id())*/
                 ->get();
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()]);
